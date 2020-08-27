@@ -1,11 +1,16 @@
 Package: ctregistries
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Data Package for Clinical Trial Registries and other MEDLINE Databanks
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Author@R: person("Maia", "Salholz-Hillel", email = "jane@example.com", role = c("aut", "cre"))
+URL: https://github.com/maia-sh/ctregistries
+BugReports: https://github.com/maia-sh/ctregistries/issues
+Description: Regular expressions (regex) for trial registration numbers (TRN) from World Health Organization (WHO) International Clinical Trials Registry Platform (ICTRP) Primary Registries (https://www.who.int/ictrp/network/primary/en/) and MEDLINE Databank Sources (https://www.nlm.nih.gov/bsd/medline_databank_source.html).
+    Additional, non-trial databanks indexed by MEDLINE included without regexes.
+License: AGPL-3
 Encoding: UTF-8
 LazyData: true
+Imports: 
+    dplyr
+Depends: 
+    R (>= 2.10)
