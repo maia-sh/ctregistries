@@ -42,7 +42,7 @@ ctregistries provides the `registries` dataframe with regular expressions for ea
 ```{r dataset}
 library(ctregistries)
 
-head(registries)
+head(registries) %>% knitr::kable()
 
 databanks$databank
 ```

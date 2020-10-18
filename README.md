@@ -44,42 +44,19 @@ databanks indexed by MEDLINE (e.g., figshare) without regexes.
 ``` r
 library(ctregistries)
 
-head(registries)
-#>             registry                                       databank_full_name
-#> 1             ANZCTR          Australian New Zealand Clinical Trials Registry
-#> 2             ChiCTR                         Chinese Clinical Trials Registry
-#> 3               CRiS Clinical Research Information Service, Republic of Korea
-#> 4 ClinicalTrials.gov                    ClinicalTrials.gov Database (NIH/NLM)
-#> 5               CTRI                         Clinical Trials Registry - India
-#> 6               DRKS                          German Clinical Trials Register
-#>   medline_start_date databank_type
-#> 1               2014      registry
-#> 2               2014      registry
-#> 3               2014      registry
-#> 4               2005      registry
-#> 5               2014      registry
-#> 6               2014      registry
-#>                                                    trn_regex medline_si
-#> 1                           (?i)(ACTRN|ANZCTR)\\W*126\\d{11}       TRUE
-#> 2                 (?i)ChiCTR\\W*(\\d{8,10}|\\w{3}\\W*\\d{8})       TRUE
-#> 3                                        (?i)KCT\\W*00\\d{5}       TRUE
-#> 4                                         (?i)NCT\\W*0\\d{7}       TRUE
-#> 5 (?i)CTRI\\W*/\\W*20\\d{2}\\W*/\\W*\\d{2,3}\\W*/\\W*0\\d{5}       TRUE
-#> 6                                      (?i)DRKS\\W*000\\d{5}       TRUE
-#>   who_ictrp_primary_registry
-#> 1                       TRUE
-#> 2                       TRUE
-#> 3                       TRUE
-#> 4                      FALSE
-#> 5                       TRUE
-#> 6                       TRUE
-#>                                             registry_website
-#> 1                                 https://www.anzctr.org.au/
-#> 2                                  http://www.chictr.org.cn/
-#> 3 http://cris.nih.go.kr/cris/en/use_guide/cris_introduce.jsp
-#> 4                                https://clinicaltrials.gov/
-#> 5                                        http://ctri.nic.in/
-#> 6                                   http://www.germanctr.de/
+head(registries) %>% knitr::kable()
+```
+
+| registry           | databank\_full\_name                                     | medline\_start\_date | databank\_type | trn\_regex         | medline\_si | who\_ictrp\_primary\_registry | registry\_website                                            |
+| :----------------- | :------------------------------------------------------- | -------------------: | :------------- | :----------------- | :---------- | :---------------------------- | :----------------------------------------------------------- |
+| ANZCTR             | Australian New Zealand Clinical Trials Registry          |                 2014 | registry       | (?i)(ACTRN|ANZCTR) | TRUE        | TRUE                          | <https://www.anzctr.org.au/>                                 |
+| ChiCTR             | Chinese Clinical Trials Registry                         |                 2014 | registry       | (?i)ChiCTR(|)      | TRUE        | TRUE                          | <http://www.chictr.org.cn/>                                  |
+| CRiS               | Clinical Research Information Service, Republic of Korea |                 2014 | registry       | (?i)KCT            | TRUE        | TRUE                          | <http://cris.nih.go.kr/cris/en/use_guide/cris_introduce.jsp> |
+| ClinicalTrials.gov | ClinicalTrials.gov Database (NIH/NLM)                    |                 2005 | registry       | (?i)NCT            | TRUE        | FALSE                         | <https://clinicaltrials.gov/>                                |
+| CTRI               | Clinical Trials Registry - India                         |                 2014 | registry       | (?i)CTRI///        | TRUE        | TRUE                          | <http://ctri.nic.in/>                                        |
+| DRKS               | German Clinical Trials Register                          |                 2014 | registry       | (?i)DRKS           | TRUE        | TRUE                          | <http://www.germanctr.de/>                                   |
+
+``` r
 
 databanks$databank
 #>  [1] "ANZCTR"             "ChiCTR"             "CRiS"              
