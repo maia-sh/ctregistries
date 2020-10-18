@@ -1,6 +1,6 @@
 Package: ctregistries
 Type: Package
-Title: Data Package for Clinical Trial Registries and other MEDLINE Databanks
+Title: Data Package and R Functions for Clinical Trial Registries and other MEDLINE Databanks
 Version: 0.1.0
 Authors@R: c(
     person("Maia", "Salholz-Hillel", email = "jane@example.com", 
