@@ -1,0 +1,84 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# ctregistries
+
+*In Development*
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of ctregistries is to facilitate the detection and analysis of clinical trial registration numbers. ctregistries is primarily a data package of regular expressions (regexes) and provides some R functions for implementing the regexes.
+
+Regular expressions were developed for trial registration numbers (TRN) from World Health Organization (WHO) International Clinical Trials Registry Platform (ICTRP) Primary Registries (https://www.who.int/ictrp/network/primary/en/) and MEDLINE Databank Sources (https://www.nlm.nih.gov/bsd/medline_databank_source.html).
+
+Additional, non-trial databanks indexed by MEDLINE (e.g., figshare) are also included, without regexes.
+
+## Installation
+
+You can install the development version of ctregistries from GitHub:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("maia-sh/ctregistries")
+```
+
+## Dataset
+
+ctregistries provides the `registries` dataframe with regular expressions for each registry. The `registries` dataframe is a subset of the larger `databanks` dataframe which additionally includes non-trial databanks indexed by MEDLINE (e.g., figshare) without regexes. `registries` is created by filtering `databanks` for `databank_type == "registry`.
+
+```{r dataset}
+library(ctregistries)
+
+head(registries)
+
+databanks$databank
+```
+
+## Functions
+ctregistries provides some functions implementing the `registries` dataset to detect trial registration numbers and registries in both vectors and dataframes.
+
+```{r example}
+library(ctregistries)
+
+# Check whether there is a TRN
+has_trn(c("NCT00312962", "hello", "euctr2020-001808-42", NA))
+
+# Extract the TRNs
+which_trn("NCT00312962 and euctr2020-001808-42")
+which_trns(c("NCT00312962", "hello", "euctr2020-001808-42", NA))
+
+# Identify the registry
+which_registry("NCT00312962 and euctr2020-001808-42")
+which_registries(c("NCT00312962", "hello", "euctr2020-001808-42", NA))
+
+# Add the trn and registry to a dataframe
+mutate_trn_registry(sample_trn_df, text)
+```
+
+## To Do
+- [ ] Add checks within functions
+  - [ ] Check input variable type
+  - [ ] Check input (column) name conflicts (e.g., databank, trn_regex)
+- [ ] Add tests: use_testthat()
+- [ ] Consider removing `check_registry` since just comparing strings...
+- [ ] Change license (CCBY or AGPL, unclear since partially data package)
+  - https://r-pkgs.org/lsicense.html
+  - https://thinkr-open.github.io/licensing-r/rlicense.html
+  - https://kbroman.org/pkg_primer/pages/licenses.html
+- [ ] Get functions to work with multiple and no trns (character(0) and NA) in one element
+  - rapply(~ifelse(. == 1,NA,.), how = "replace")
+  - purrr::modify_if()
+  - any(lengths(y) > 1) # flatten if max 1 trn per element...but issue with character(0)

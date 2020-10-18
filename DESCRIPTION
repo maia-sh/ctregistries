@@ -2,15 +2,31 @@ Package: ctregistries
 Type: Package
 Title: Data Package for Clinical Trial Registries and other MEDLINE Databanks
 Version: 0.1.0
-Author@R: person("Maia", "Salholz-Hillel", email = "jane@example.com", role = c("aut", "cre"))
+Authors@R: c(
+    person("Maia", "Salholz-Hillel", email = "jane@example.com", 
+            role = c("aut", "cre", "cph"), comment = c(ORCID = "0000-0003-1934-9504")),
+    person("Nicholas", "DeVito", 
+            role = "dtc", comment = c(ORCID = "0000-0001-8286-1995")),
+    person("Benjamin Gregory", "Carlisle", 
+            role = "dtc", comment = c(ORCID = "0000-0001-8975-0649"))
+    )
 URL: https://github.com/maia-sh/ctregistries
 BugReports: https://github.com/maia-sh/ctregistries/issues
-Description: Regular expressions (regex) for trial registration numbers (TRN) from World Health Organization (WHO) International Clinical Trials Registry Platform (ICTRP) Primary Registries (https://www.who.int/ictrp/network/primary/en/) and MEDLINE Databank Sources (https://www.nlm.nih.gov/bsd/medline_databank_source.html).
+Description: Regular expressions (regex) and R functions for trial registration numbers (TRN) from World Health Organization (WHO) International Clinical Trials Registry Platform (ICTRP) Primary Registries (https://www.who.int/ictrp/network/primary/en/) and MEDLINE Databank Sources (https://www.nlm.nih.gov/bsd/medline_databank_source.html).
     Additional, non-trial databanks indexed by MEDLINE included without regexes.
-License: AGPL-3
+License: CC BY 4.0
 Encoding: UTF-8
 LazyData: true
 Imports: 
-    dplyr
+    dplyr,
+    here,
+    readr,
+    magrittr,
+    fuzzyjoin,
+    tidyr,
+    rlang,
+    purrr,
+    stringr
 Depends: 
     R (>= 2.10)
+RoxygenNote: 7.1.1

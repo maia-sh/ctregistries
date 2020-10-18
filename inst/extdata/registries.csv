@@ -1,4 +1,4 @@
-﻿databank,databank_full_name,medline_start_date,databank_type,registry_regex,medline_si,who_ictrp_primary_registry,registry_website,registry_comments,format_info
+﻿databank,databank_full_name,medline_start_date,databank_type,trn_regex,medline_si,who_ictrp_primary_registry,registry_website,registry_comments,format_info
 ANZCTR,Australian New Zealand Clinical Trials Registry,2014,registry,(?i)(ACTRN|ANZCTR)\W*126\d{11},TRUE,TRUE,https://www.anzctr.org.au/,,
 ChiCTR,Chinese Clinical Trials Registry,2014,registry,"(?i)ChiCTR\W*(\d{8,10}|\w{3}\W*\d{8})",TRUE,TRUE,http://www.chictr.org.cn/,,
 CRiS,"Clinical Research Information Service, Republic of Korea",2014,registry,(?i)KCT\W*00\d{5},TRUE,TRUE,http://cris.nih.go.kr/cris/en/use_guide/cris_introduce.jsp,,
@@ -10,7 +10,7 @@ IRCT,Iranian Registry of Clinical Trials,2014,registry,"(?i)IRCT\W*20\d{10,12}N\
 ISRCTN,International Standard Randomized Controlled Trial Number (ISRCTN.org) Register,2006,registry,(?i)ISRCTN\W*\d{8},TRUE,TRUE,http://www.isrctn.org/,,
 JapicCTI,Japan Pharmaceutical Information Center (Japan Registry Member),2017,registry,(?i)Japic\W*CTI\W*\d{6},TRUE,TRUE,http://www.japic.or.jp/,Member of JPRN (Japan Primary Registries Network),
 JMACCT,"Center for Clinical Trials, Japan Medical Association (Japan Registry Member)",2017,registry,(?i)JMA\W*IIA00\d{3},TRUE,TRUE,http://www.jmacct.med.or.jp/en/,Member of JPRN (Japan Primary Registries Network),
-JPRN,Japan Primary Registries Network,2014,registry_network,(?i)(UMIN|C)\W*0000\d{5},TRUE,TRUE,https://rctportal.niph.go.jp/en/,"Consists of JapicCTI, JMACCT, jRCT, UMIN-CTR",
+JPRN,Japan Primary Registries Network,2014,registry_network,NA,TRUE,TRUE,https://rctportal.niph.go.jp/en/,"Consists of JapicCTI, JMACCT, jRCT, UMIN-CTR",
 jRCT,Japan Registry of Clinical Trials,NA,registry,(?i)jRCT\W*\w{1}\W*\d{9},FALSE,TRUE,https://jrct.niph.go.jp/,Member of JPRN (Japan Primary Registries Network),
 LBCTR,Lebanese Clinical Trials Registry ,NA,registry,(?i)LBCTR\W*20\d{8},FALSE,TRUE,http://lbctr.emro.who.int/,,
 NTR,The Netherlands National Trial Register,2014,registry,"(?i)(NTR|NL)\W*\d{2,4}",TRUE,TRUE,http://www.trialregister.nl/,,
