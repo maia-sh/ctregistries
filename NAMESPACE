@@ -2,6 +2,7 @@
 
 export("%>%")
 export(check_registry)
+export(clean_trn)
 export(has_trn)
 export(mutate_trn_registry)
 export(which_registries)
