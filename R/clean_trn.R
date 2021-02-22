@@ -68,7 +68,7 @@ clean_trn <- function(trn, registry = NULL, quiet = FALSE){
     registry,
     "ClinicalTrials.gov" = glue::glue("NCT", stringr::str_extract(trn, "0\\d{7}")),
     "DRKS" = glue::glue("DRKS", stringr::str_extract(trn, "000\\d{5}")),
-    "ISRCTN" = glue::glue("ISCRTN", stringr::str_extract(trn, "\\d{8}")),
+    "ISRCTN" = glue::glue("ISRCTN", stringr::str_extract(trn, "\\d{8}")),
     "PACTR" = glue::glue("PACTR", stringr::str_extract(trn, "20\\d{13}")),
     "EudraCT" =
       stringr::str_replace_all(
