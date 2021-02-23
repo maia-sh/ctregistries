@@ -94,6 +94,7 @@ test_that("EudraCT TN rejected", {
   tests <- c(
     # "200400600800", #10.1007/s00394-015-1084-x [ISSUE]
     # "201201801201"  #10.1016/j.jpain.2012.01.003 [ISSUE]
+    "PACTR201205000384379" #PMC5278894 (previously matched because of second "20")
   )
 
   purrr::walk(
