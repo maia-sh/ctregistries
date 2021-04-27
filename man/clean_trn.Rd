@@ -14,7 +14,7 @@ clean_trn(trn, registry = NULL, quiet = FALSE)
 \item{quiet}{Logical. Whether to inform user if TRN changed (and only when TRN changed). Defaults to TRUE.}
 }
 \value{
-Cleaned TRN. If error (e.g., if no trn input or registry not in cleaning list), aborts (could change to inform and return NA). If input trn already clean, return is same as input.
+Cleaned TRN. If error (e.g., if no trn input or registry not in cleaning list), aborts (could change to inform and return NA). If input trn already clean, return is same as input. If TRN is NA, return NA.
 }
 \description{
 Current limitations:

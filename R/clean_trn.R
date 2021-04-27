@@ -8,7 +8,7 @@
 #' @param registry Character. Registry of TRN. Default to NULL and detected to TRN. Note: Currently, always set registry to NULL because would need further input validation.
 #' @param quiet Logical. Whether to inform user if TRN changed (and only when TRN changed). Defaults to TRUE.
 #'
-#' @return Cleaned TRN. If error (e.g., if no trn input or registry not in cleaning list), aborts (could change to inform and return NA). If input trn already clean, return is same as input.
+#' @return Cleaned TRN. If error (e.g., if no trn input or registry not in cleaning list), aborts (could change to inform and return NA). If input trn already clean, return is same as input. If TRN is NA, return NA.
 #' @export
 #'
 #' @examples
@@ -35,6 +35,9 @@ clean_trn <- function(trn, registry = NULL, quiet = FALSE){
   # Note: would need further tests to handle incorrect user-supplied registry,
   # E.g., clean_trn("NCT01208194", "DRKS")
   registry = NULL
+
+  # If trn is na, return na
+  if (is.na(trn)) {return(NA_character_)}
 
   # If registry not provided, detect registry
   if (rlang::is_null(registry)){
