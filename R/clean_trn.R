@@ -2,7 +2,7 @@
 #'
 #' Current limitations:
 #' - Single TRN
-#' - Only "ClinicalTrials.gov", "DRKS", "ISRCTN", "EudraCT", "PACTR"
+#' - Only "ANZCTR", "ClinicalTrials.gov", "DRKS", "ISRCTN", "JapicCTI", "EudraCT", "NTR", "PACTR"
 #'
 #' @param trn Character. A single (messy) TRN. Note: Function tested on single TRN input only, so could perform unexpectedly if run on text with other pattern matches or multiple TRNs.
 #' @param registry Character. Registry of TRN. Default to NULL and detected to TRN. Note: Currently, always set registry to NULL because would need further input validation.
@@ -56,7 +56,9 @@ clean_trn <- function(trn, registry = NULL, quiet = FALSE){
   }
 
   # If registry not one of those included for cleaning, abort (so I can add to cleaning)
-  cleaning_registries <- c("ClinicalTrials.gov", "DRKS", "ISRCTN", "EudraCT", "PACTR")
+  cleaning_registries <-
+    c("ANZCTR", "ClinicalTrials.gov", "DRKS", "ISRCTN", "JapicCTI", "EudraCT", "NTR", "PACTR")
+
   if (!registry %in% cleaning_registries){
     rlang::abort(
       glue::glue(
@@ -69,10 +71,16 @@ clean_trn <- function(trn, registry = NULL, quiet = FALSE){
 
   trn_cleaned <- switch(
     registry,
+    "ANZCTR" = glue::glue("ACTRN", stringr::str_extract(trn, "126\\d{11}")),
     "ClinicalTrials.gov" = glue::glue("NCT", stringr::str_extract(trn, "0\\d{7}")),
     "DRKS" = glue::glue("DRKS", stringr::str_extract(trn, "000\\d{5}")),
     "ISRCTN" = glue::glue("ISRCTN", stringr::str_extract(trn, "\\d{8}")),
+    "JapicCTI" = glue::glue("JapicCTI-", stringr::str_extract(trn, "\\d{6}")),
     "PACTR" = glue::glue("PACTR", stringr::str_extract(trn, "20\\d{13}")),
+
+    # NTR could start with "NL" or "NTR" depending on new or old id, so just remove spaces
+    "NTR" = stringr::str_remove_all(trn, "\\s"),
+
     "EudraCT" =
       stringr::str_replace_all(
         stringr::str_extract(

@@ -19,7 +19,7 @@ Cleaned TRN. If error (e.g., if no trn input or registry not in cleaning list), 
 \description{
 Current limitations:
 - Single TRN
-- Only "ClinicalTrials.gov", "DRKS", "ISRCTN", "EudraCT", "PACTR"
+- Only "ANZCTR", "ClinicalTrials.gov", "DRKS", "ISRCTN", "JapicCTI", "EudraCT", "NTR", "PACTR"
 }
 \examples{
 
