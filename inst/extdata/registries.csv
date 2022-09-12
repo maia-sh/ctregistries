@@ -20,7 +20,7 @@ REPEC,Peruvian Clinical Trial Registry,2018,registry,(?i)PER-*\d{3}-*\d{2}\b,TRU
 RPCEC,Cuban Public Registry of Clinical Trials,2014,registry,(?i)RPCEC\W*0{5}\d{3},TRUE,TRUE,http://registroclinico.sld.cu/en/home,,
 SLCTR,Sri Lanka Clinical Trials Registry,2014,registry,(?i)SLCTR\W*20\d{2}\W*\d{3},TRUE,TRUE,http://www.slctr.lk/,,
 TCTR,Thai Clinical Trials Registry,2014,registry,(?i)TCTR\W*20\d{9},TRUE,TRUE,http://www.clinicaltrials.in.th/,,
-UMIN-CTR,University Hospital Medical Information Network Clinical Trial Registry (Japan Registry Member),2017,registry,(?i)(UMIN|C)\W*0000\d{5},TRUE,TRUE,http://www.umin.ac.jp/ctr/,"Member of JPRN (Japan Primary Registries Network); MEDLINE uses JPRN (Japan Primary Registries Network) interchangeably with UMIN-CTR, except JPRN since 2014; seem to always have 4 leading 0's",https://upload.umin.ac.jp/ctr/announce/ctrno_prefix_e.htm
+UMIN-CTR,University Hospital Medical Information Network Clinical Trial Registry (Japan Registry Member),2017,registry,(?i)\b(UMIN|C)\W*0000\d{5},TRUE,TRUE,http://www.umin.ac.jp/ctr/,"Member of JPRN (Japan Primary Registries Network); MEDLINE uses JPRN (Japan Primary Registries Network) interchangeably with UMIN-CTR, except JPRN since 2014; seem to always have 4 leading 0's",https://upload.umin.ac.jp/ctr/announce/ctrno_prefix_e.htm
 BioProject,BioProject Database (NIH/NLM),2014,other,NA,TRUE,NA,,,
 dbGaP,Database of Genotypes and Phenotypes (NIH/NLM),2014,other,NA,TRUE,NA,,,
 dbSNP,Database of Short Genetic Variations (NIH/NLM),2014,other,NA,TRUE,NA,,,

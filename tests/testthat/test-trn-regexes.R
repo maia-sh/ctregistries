@@ -248,3 +248,30 @@ test_that("REPEC TN rejected", {
     expect_registry, reg = "REPEC", match_expected = FALSE
   )
 })
+
+
+# UMIN-CTR ----------------------------------------------------------------
+
+test_that("UMIN-CTR TP detected", {
+
+  tests <- c(
+    "registration no. UMIN000012045", #10.1002/ams2.666
+    "previously (UMIN:000000562," #10.1002/ehf2.12765
+  )
+
+  purrr::walk(
+    tests,
+    expect_registry, reg = "UMIN-CTR", match_expected = TRUE
+  )
+})
+
+test_that("UMIN-CTR TN rejected", {
+  tests <- c(
+    "ZINC000052955"    #10.1016/j.heliyon.2021.e07803
+  )
+
+  purrr::walk(
+    tests,
+    expect_registry, reg = "UMIN-CTR", match_expected = FALSE
+  )
+})

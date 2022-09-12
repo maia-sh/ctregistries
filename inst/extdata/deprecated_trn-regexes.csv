@@ -3,3 +3,4 @@
 2021-02-05,NTR,"(?i)(NTR|NL)\W*\d{2,4}","(?i)(NTR|NL)\s*\d{2,4}\b",require word boundary at end and spaces only
 2021-02-05,REBEC,(?i)PER\W*\d{3}\W*\d{2},(?i)PER-*\d{3}-*\d{2}\b,require word boundary at end and disallow spaces so dashes only
 2021-02-23,EudraCT,(?i)(?<!IRCT|PACTR)20\d{2}\W*0\d{5}\W*\d{2}\b,(?i)(?<!IRCT|PACTR|\d)20\d{2}\W*0\d{5}\W*\d{2}\b,disallow preceded by numbers
+2022-09-12,UMIN-CTR,(?i)(UMIN|C)\W*0000\d{5}, (?i)\b(UMIN|C)\W*0000\d{5},require word boundary at beginning
