@@ -57,7 +57,7 @@ clean_trn <- function(trn, registry = NULL, quiet = FALSE){
 
   # If registry not one of those included for cleaning, abort (so I can add to cleaning)
   cleaning_registries <-
-    c("ANZCTR", "ClinicalTrials.gov", "DRKS", "ISRCTN", "JapicCTI", "EudraCT", "NTR", "PACTR")
+    c("ANZCTR", "ChiCTR", "ClinicalTrials.gov", "CRiS", "CTRI", "DRKS", "IRCT", "ISRCTN", "JapicCTI", "jRCT", "EudraCT", "NTR", "PACTR", "UMIN-CTR")
 
   if (!registry %in% cleaning_registries){
     rlang::abort(
@@ -73,10 +73,18 @@ clean_trn <- function(trn, registry = NULL, quiet = FALSE){
     registry,
     "ANZCTR" = glue::glue("ACTRN", stringr::str_extract(trn, "126\\d{11}")),
     "ClinicalTrials.gov" = glue::glue("NCT", stringr::str_extract(trn, "0\\d{7}")),
+    # Note: This may not work for ids with intervening letters
+    # TODO: additional tests
+    "ChiCTR" = glue::glue("ChiCTR", stringr::str_extract(trn, "\\d*$")),
+    "CRiS" = glue::glue("KCT", stringr::str_extract(trn, "00\\d{5}")),
+    "CTRI" = glue::glue("CTRI", stringr::str_extract(trn, "/20\\d{2}/\\d{2,3}/0\\d{5}")),
     "DRKS" = glue::glue("DRKS", stringr::str_extract(trn, "000\\d{5}")),
+    "IRCT" = glue::glue("IRCT", stringr::str_extract(trn, "20\\d{10,12}N\\d{1,3}")),
     "ISRCTN" = glue::glue("ISRCTN", stringr::str_extract(trn, "\\d{8}")),
+    "jRCT" = glue::glue("jRCT", stringr::str_extract(trn, "\\w{1}\\d{9}")),
     "JapicCTI" = glue::glue("JapicCTI-", stringr::str_extract(trn, "\\d{6}")),
     "PACTR" = glue::glue("PACTR", stringr::str_extract(trn, "20\\d{13}")),
+    "UMIN-CTR" = glue::glue("UMIN", stringr::str_extract(trn, "0000\\d{5}")),
 
     # NTR could start with "NL" or "NTR" depending on new or old id, so just remove spaces
     "NTR" = stringr::str_remove_all(trn, "\\s"),
