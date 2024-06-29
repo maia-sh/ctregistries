@@ -57,7 +57,7 @@ clean_trn <- function(trn, registry = NULL, quiet = FALSE){
 
   # If registry not one of those included for cleaning, abort (so I can add to cleaning)
   cleaning_registries <-
-    c("ANZCTR", "ChiCTR", "ClinicalTrials.gov", "CRiS", "CTRI", "DRKS", "IRCT", "ISRCTN", "JapicCTI", "jRCT", "EudraCT", "NTR", "PACTR", "ReBec", "UMIN-CTR")
+    c("ANZCTR", "ChiCTR", "ClinicalTrials.gov", "CRiS", "CTRI", "DRKS", "IRCT", "ISRCTN", "JapicCTI", "jRCT", "EudraCT", "NTR", "PACTR", "ReBec", "RPCEC", "UMIN-CTR")
 
   if (!registry %in% cleaning_registries){
     rlang::abort(
@@ -85,6 +85,7 @@ clean_trn <- function(trn, registry = NULL, quiet = FALSE){
     "JapicCTI" = glue::glue("JapicCTI-", stringr::str_extract(trn, "\\d{6}")),
     "PACTR" = glue::glue("PACTR", stringr::str_extract(trn, "20\\d{13}")),
     "ReBec" = glue::glue("RBR-", stringr::str_extract(trn, "\\d\\w{5}")),
+    "RPCEC" = glue::glue("RPCEC", stringr::str_extract(trn, "0{5}\\d{3}")),
     "UMIN-CTR" = glue::glue("UMIN", stringr::str_extract(trn, "0000\\d{5}")),
 
     # NTR could start with "NL" or "NTR" depending on new or old id, so just remove spaces
