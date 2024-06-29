@@ -57,7 +57,7 @@ clean_trn <- function(trn, registry = NULL, quiet = FALSE){
 
   # If registry not one of those included for cleaning, abort (so I can add to cleaning)
   cleaning_registries <-
-    c("ANZCTR", "ChiCTR", "ClinicalTrials.gov", "CRiS", "CTRI", "DRKS", "IRCT", "ISRCTN", "JapicCTI", "jRCT", "EudraCT", "NTR", "PACTR", "ReBec", "RPCEC", "UMIN-CTR")
+    c("ANZCTR", "ChiCTR", "ClinicalTrials.gov", "CRiS", "CTRI", "DRKS", "IRCT", "ISRCTN", "JapicCTI", "jRCT", "EudraCT", "LBCTR", "NTR", "PACTR", "ReBec", "RPCEC", "UMIN-CTR")
 
   if (!registry %in% cleaning_registries){
     rlang::abort(
@@ -83,6 +83,7 @@ clean_trn <- function(trn, registry = NULL, quiet = FALSE){
     "ISRCTN" = glue::glue("ISRCTN", stringr::str_extract(trn, "\\d{8}")),
     "jRCT" = glue::glue("jRCT", stringr::str_extract(trn, "\\w{1}\\d{9}")),
     "JapicCTI" = glue::glue("JapicCTI-", stringr::str_extract(trn, "\\d{6}")),
+    "LBCTR" = glue::glue("LBCTR", stringr::str_extract(trn, "20\\d{8}")),
     "PACTR" = glue::glue("PACTR", stringr::str_extract(trn, "20\\d{13}")),
     "ReBec" = glue::glue("RBR-", stringr::str_extract(trn, "\\d\\w{5}")),
     "RPCEC" = glue::glue("RPCEC", stringr::str_extract(trn, "0{5}\\d{3}")),
