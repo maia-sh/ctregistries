@@ -220,6 +220,11 @@ test_that("PACTR TP detected", {
 #   )
 # })
 
+test_that("All PACTR digits extracted", {
+  expect_equal(which_trn("PACTR 2010020001429343"), "PACTR 2010020001429343")
+  expect_equal(which_trn("PACTR202406532417953"), "PACTR202406532417953")
+})
+
 # REPEC -------------------------------------------------------------------
 
 test_that("REPEC TP detected", {
