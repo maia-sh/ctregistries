@@ -85,7 +85,7 @@ clean_trn <- function(trn, registry = NULL, quiet = FALSE){
     "DRKS" = glue::glue("DRKS", stringr::str_extract(trn, "000\\d{5}")),
     "IRCT" = glue::glue("IRCT", stringr::str_extract(trn, "20\\d{10,12}N\\d{1,3}")),
     "ISRCTN" = glue::glue("ISRCTN", stringr::str_extract(trn, "\\d{8}")),
-    "jRCT" = glue::glue("jRCT", stringr::str_extract(trn, "\\w{1}\\d{9}")),
+    "jRCT" = glue::glue("jRCT", stringr::str_extract(trn, "\\d{9}")),
     "JapicCTI" = glue::glue("JapicCTI-", stringr::str_extract(trn, "\\d{6}")),
     "LBCTR" = glue::glue("LBCTR", stringr::str_extract(trn, "20\\d{8}")),
     "PACTR" = glue::glue("PACTR", stringr::str_extract(trn, "20\\d{13,14}")),
