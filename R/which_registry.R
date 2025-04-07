@@ -15,8 +15,8 @@
 which_registry <- function(x) {
 
   registry <-
-    ctregistries::registries %>%
-    dplyr::filter(stringr::str_detect(x, .data$trn_regex)) %>%
+    ctregistries::registries |>
+    dplyr::filter(stringr::str_detect(x, .data$trn_regex)) |>
     dplyr::pull(registry)
 
   # Return NA if no trn match

@@ -23,7 +23,7 @@ which_trn <- function(x) {
                              paste0(ctregistries::registries$trn_regex,
                                     collapse = "|")#,
                              # simplify = TRUE
-    ) %>%
+    ) |>
     purrr::flatten_chr()
 
   # Return NA if no trn match

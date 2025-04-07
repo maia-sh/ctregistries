@@ -22,8 +22,8 @@ expect_registry <- function(object, reg, match_expected = TRUE) {
 
   # Check whether object matches reg regex
   trn_regex <-
-    ctregistries::registries %>%
-    dplyr::filter(.data$registry == reg) %>%
+    ctregistries::registries |>
+    dplyr::filter(.data$registry == reg) |>
     dplyr::pull(.data$trn_regex)
 
   act$match <- stringr::str_detect(act$val, trn_regex)

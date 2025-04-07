@@ -14,16 +14,16 @@
 
 mutate_trn_registry <- function(data, by, .keep = TRUE) {
 
-  data %>%
+  data |>
 
     fuzzyjoin::regex_join(
       dplyr::select(ctregistries::registries, .data$registry, .data$trn_regex),
       rlang::set_names("trn_regex", rlang::ensym(by)),
       ignore_case = TRUE,
       mode = ifelse(.keep == TRUE, "left", "inner") # Filter join to remove non-trn
-    ) %>%
+    ) |>
 
-    dplyr::mutate(trn = stringr::str_extract_all({{by}}, .data$trn_regex)) %>%
-    tidyr::unnest(.data$trn) %>%
+    dplyr::mutate(trn = stringr::str_extract_all({{by}}, .data$trn_regex)) |>
+    tidyr::unnest(.data$trn) |>
     dplyr::select(-.data$trn_regex)
 }

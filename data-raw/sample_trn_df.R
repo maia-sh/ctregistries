@@ -1,5 +1,3 @@
-library(dplyr)
-
 sample_trn_df <-
   dplyr::tribble(
     ~id, ~text,                 ~registry_guess,
