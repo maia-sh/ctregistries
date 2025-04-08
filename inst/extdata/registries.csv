@@ -1,10 +1,10 @@
-﻿databank,databank_full_name,medline_start_date,databank_type,trn_regex,medline_si,who_ictrp_primary_registry,registry_website,registry_comments,format_info
+databank,databank_full_name,medline_start_date,databank_type,trn_regex,medline_si,who_ictrp_primary_registry,registry_website,registry_comments,format_info
 ANZCTR,Australian New Zealand Clinical Trials Registry,2014,registry,(?i)(ACTRN|ANZCTR)\W*126\d{11},TRUE,TRUE,https://www.anzctr.org.au/,,
 ChiCTR,Chinese Clinical Trials Registry,2014,registry,"(?i)ChiCTR\W*(\d{8,10}|\w{3}\W*\d{8})",TRUE,TRUE,http://www.chictr.org.cn/,,
 CRiS,"Clinical Research Information Service, Republic of Korea",2014,registry,(?i)KCT\W*00\d{5},TRUE,TRUE,http://cris.nih.go.kr/cris/en/use_guide/cris_introduce.jsp,,
 ClinicalTrials.gov,ClinicalTrials.gov Database (NIH/NLM),2005,registry,(?i)NCT\W*0\d{7},TRUE,FALSE,https://clinicaltrials.gov/,,
 CTRI,Clinical Trials Registry - India,2014,registry,"(?i)CTRI\W*/\W*20\d{2}\W*/\W*\d{2,3}\W*/\W*0\d{5}",TRUE,TRUE,http://ctri.nic.in/,,
-DRKS,German Clinical Trials Register,2014,registry,(?i)DRKS\W*000\d{5},TRUE,TRUE,http://www.germanctr.de/,,
+DRKS,German Clinical Trials Register,2014,registry,(?i)DRKS\W*((Nr|Number|ID|No)\W*)*000\d{5},TRUE,TRUE,https://drks.de/search/en/,,
 EudraCT,EU Clinical Trials Register,2014,registry,(?i)(?<!IRCT|PACTR|\d)20\d{2}\W*0\d{5}\W*\d{2}\b,TRUE,TRUE,https://www.clinicaltrialsregister.eu/,,
 IRCT,Iranian Registry of Clinical Trials,2014,registry,"(?i)IRCT\W*20\d{10,12}N\d{1,3}",TRUE,TRUE,http://www.irct.ir/,,
 ISRCTN,International Standard Randomized Controlled Trial Number (ISRCTN.org) Register,2006,registry,(?i)ISRCTN\W*\d{8},TRUE,TRUE,http://www.isrctn.org/,,

@@ -27,7 +27,7 @@ Imports:
     glue,
     furrr
 Depends: 
-    R (>= 2.10)
+    R (>= 3.5)
 RoxygenNote: 7.3.2
 Suggests: 
     testthat,

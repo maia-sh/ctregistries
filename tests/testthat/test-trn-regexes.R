@@ -56,7 +56,14 @@ test_that("DRKS TP detected", {
 
   tests <- c(
     "DRKS00005115", #10.1002/dta.1830
-    "DRKS 00003170" #10.1111/jdv.12823
+    "DRKS 00003170", #10.1111/jdv.12823
+    "DRKS Number: 00003246",
+    "DRKS: 00004353",
+    "DRKS ID 00003498",
+    "DRKS-Number: DRKS00003349",
+    "DRKS No Number: 00013730",
+    "DRKS-IDDRKS00025222",
+    "Name: DRKS Number: 00011932"
   )
 
   purrr::walk(
