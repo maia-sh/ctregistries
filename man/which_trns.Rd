@@ -7,7 +7,11 @@
 which_trns(trn_vec, collapse = NA_character_)
 }
 \arguments{
-\item{x}{A character vector.}
+\item{trn_vec}{A character vector.}
+
+\item{collapse}{A string. By default, NA, the return is a vector with
+all extracted TRNs. If a collapse string is given, then the vector will
+be collapsed to a single string with the chosen separator string.}
 }
 \value{
 A character vector, length of input.
@@ -25,5 +29,6 @@ dplyr::mutate(df, trn_extract = which_trns(trn))
 \dontrun{
 which_trns(c("NCT00312962 and euctr2020-001808-41", "hello", "euctr2020-001808-42", NA))
 }
-which_trns(c("NCT00312962 and euctr2020-001808-41", "hello", "euctr2020-001808-42", NA), collapse = ";")
+which_trns(c("NCT00312962 and euctr2020-001808-41", "hello", "euctr2020-001808-42", NA),
+ collapse = ";")
 }

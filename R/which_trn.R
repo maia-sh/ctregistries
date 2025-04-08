@@ -37,7 +37,9 @@ which_trn <- function(x, collapse = NA_character_) {
     return(NA_character_)
   } else {
     if (!is.na(collapse)) {
-      trn <- paste(trn, collapse = collapse)
+      trn <- paste(trn, collapse = collapse) |>
+        dplyr::na_if("NA") |>
+        dplyr::na_if("")
     }
     return(trn)
   }
@@ -47,7 +49,11 @@ which_trn <- function(x, collapse = NA_character_) {
 
 #' Extract TRN(s) from each element of input
 #'
-#' @param x A character vector.
+#' @param trn_vec A character vector.
+#' @param collapse A string. By default, NA, the return is a vector with
+#' all extracted TRNs. If a collapse string is given, then the vector will
+#' be collapsed to a single string with the chosen separator string.
+#'
 #' @return A character vector, length of input.
 #'
 #' @importFrom rlang .data
@@ -62,9 +68,10 @@ which_trn <- function(x, collapse = NA_character_) {
 #' \dontrun{
 #' which_trns(c("NCT00312962 and euctr2020-001808-41", "hello", "euctr2020-001808-42", NA))
 #' }
-#' which_trns(c("NCT00312962 and euctr2020-001808-41", "hello", "euctr2020-001808-42", NA), collapse = ";")
+#' which_trns(c("NCT00312962 and euctr2020-001808-41", "hello", "euctr2020-001808-42", NA),
+#'  collapse = ";")
 
 which_trns <- function(trn_vec, collapse = NA_character_) {
 
-  purrr::map_chr(trn_vec, \(x) which_trn(x, collapse = collapse))
+  furrr::future_map_chr(trn_vec, \(x) which_trn(x, collapse = collapse), .progress = TRUE)
 }
