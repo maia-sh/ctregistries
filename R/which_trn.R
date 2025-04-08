@@ -1,9 +1,10 @@
 #' Extract TRN(s) from input
 #'
 #' @param x A string (character vector of length 1)
-#' @param collapse A string. By default, NA, the return is a vector with
-#' all extracted TRNs. If a collapse string is given, then the vector will
-#' be collapsed to a single string with the chosen separator string.
+#' @param collapse A string. When a collapse string is given, (by default ";"),
+#' then the return vector will be collapsed to a single string with the chosen
+#' separator string. If collapse is set to "none", the return is a vector with
+#' all extracted TRNs instead.
 #' @param clean Logical. By default (TRUE), the individual TRNs will also be
 #' cleaned with `trn_clean`. Skip cleaning by setting to FALSE.
 #'
@@ -16,13 +17,13 @@
 #' @examples
 #' which_trn("NCT00312962")
 #' which_trn("NCT00312962 and euctr2020-001808-42")
-#' which_trn("NCT00312962 and euctr2020-001808-42", collapse = ";")
-#' which_trn("NCT 00312962 and euctr2020-001808-42", collapse = ";")
-#' which_trn("NCT 00312962 and euctr2020-001808-42", collapse = ";", clean = FALSE)
-#' which_trn("hello")
-#' which_trn(NA, NA)
-
-which_trn <- function(x, collapse = NA_character_, clean = TRUE) {
+#' which_trn("NCT00312962 and euctr2020-001808-42", collapse = "none")
+#' which_trn("NCT 00312962 and euctr2020-001808-42")
+#' which_trn("NCT 00312962 and euctr2020-001808-42", clean = FALSE)
+#' which_trn("hello") # return NA if nothing was detected
+#' which_trn(c("NCT 00312962", NA, "", "hello")) # NAs and empty strings are ignored
+#'
+which_trn <- function(x, collapse = ";", clean = TRUE) {
   # # works if only 1 trn
   # stringr::str_extract(x,paste0(ctregistries::registries$trn_regex,
   #                               collapse = "|"))
@@ -46,12 +47,13 @@ which_trn <- function(x, collapse = NA_character_, clean = TRUE) {
                                    \(x) clean_trn(x, quiet = TRUE))
     }
 
-    if (!is.na(collapse)) {
-      trn <- paste(trn, collapse = collapse) |>
+    if (collapse != "none") {
+      trn <- trn |>
         dplyr::na_if("NA") |>
-        dplyr::na_if("")
+        dplyr::na_if("") |>
+        stats::na.omit() |>
+        paste(collapse = collapse)
     }
-
     return(trn)
   }
 
@@ -61,9 +63,8 @@ which_trn <- function(x, collapse = NA_character_, clean = TRUE) {
 #' Extract TRN(s) from each element of input
 #'
 #' @param trn_vec A character vector.
-#' @param collapse A string. By default, NA, the return is a vector with
-#' all extracted TRNs. If a collapse string is given, then the vector will
-#' be collapsed to a single string with the chosen separator string.
+#' @param collapse A string. The returned vector will be collapsed to a single
+#' string with the chosen separator string. Cannot be set to NA.
 #' @param clean Logical. By default (TRUE), the individual TRNs will also be
 #' cleaned with `trn_clean`. Skip cleaning by setting to FALSE.
 #'
@@ -77,16 +78,16 @@ which_trn <- function(x, collapse = NA_character_, clean = TRUE) {
 #' df <- dplyr::tibble(trn = c("NCT00312962", "hello", "euctr2020-001808-42", NA))
 #' dplyr::mutate(df, trn_extract = which_trns(trn))
 #'
-#' # docDoes not work for multiple TRNs in one element if no collapse chosen
+#' # Does not work for multiple TRNs in one element without collapse
 #' \dontrun{
-#' which_trns(c("NCT00312962 and euctr2020-001808-41", "hello", "euctr2020-001808-42", NA))
+#' which_trns(c("NCT00312962 and euctr2020-001808-41", "hello", "euctr2020-001808-42", NA),
+#'  collapse = "none")
 #' }
+#' which_trns(c("NCT 00312962 and euctr2020-001808-41", "hello", "euctr2020-001808-42", NA))
 #' which_trns(c("NCT 00312962 and euctr2020-001808-41", "hello", "euctr2020-001808-42", NA),
-#'  collapse = ";")
-#' which_trns(c("NCT 00312962 and euctr2020-001808-41", "hello", "euctr2020-001808-42", NA),
-#'  collapse = ";", clean = FALSE)
-
-which_trns <- function(trn_vec, collapse = NA_character_, clean = TRUE) {
-
-  furrr::future_map_chr(trn_vec, \(x) which_trn(x, collapse = collapse), .progress = TRUE)
+#'  clean = FALSE)
+#'
+which_trns <- function(trn_vec, collapse = ";", clean = TRUE) {
+  stopifnot("Collapse argument cannot be set to 'none'. Did you mean to use which_trn?" = collapse != "none")
+  furrr::future_map_chr(trn_vec, \(x) which_trn(x, collapse = collapse, clean = clean), .progress = TRUE)
 }
