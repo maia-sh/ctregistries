@@ -4,7 +4,7 @@
 \alias{which_trns}
 \title{Extract TRN(s) from each element of input}
 \usage{
-which_trns(x)
+which_trns(trn_vec, collapse = NA_character_)
 }
 \arguments{
 \item{x}{A character vector.}
@@ -21,8 +21,9 @@ which_trns(c("NCT00312962", "hello", "euctr2020-001808-42", NA))
 df <- dplyr::tibble(trn = c("NCT00312962", "hello", "euctr2020-001808-42", NA))
 dplyr::mutate(df, trn_extract = which_trns(trn))
 
-# docDoes not work for multiple TRNs in one element
+# docDoes not work for multiple TRNs in one element if no collapse chosen
 \dontrun{
 which_trns(c("NCT00312962 and euctr2020-001808-41", "hello", "euctr2020-001808-42", NA))
 }
+which_trns(c("NCT00312962 and euctr2020-001808-41", "hello", "euctr2020-001808-42", NA), collapse = ";")
 }

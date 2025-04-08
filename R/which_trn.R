@@ -1,18 +1,24 @@
 #' Extract TRN(s) from input
 #'
 #' @param x A string (character vector of length 1)
+#' @param collapse A string. By default, NA, the return is a vector with
+#' all extracted TRNs. If a collapse string is given, then the vector will
+#' be collapsed to a single string with the chosen separator string.
 #'
-#' @return A string (character vector of length number of registries). Returns NA if no trial registration number detected.
+#' @return A string (character vector of length number of registries or
+#'  of length 1, depending on value of collapse).
+#'  Returns NA if no trial registration numbers detected.
 #'
 #' @importFrom rlang .data
 #' @export
 #' @examples
 #' which_trn("NCT00312962")
 #' which_trn("NCT00312962 and euctr2020-001808-42")
+#' which_trn("NCT00312962 and euctr2020-001808-42", collapse = ";")
 #' which_trn("hello")
-#' which_trn(NA)
+#' which_trn(NA, NA)
 
-which_trn <- function(x) {
+which_trn <- function(x, collapse = NA_character_) {
   # # works if only 1 trn
   # stringr::str_extract(x,paste0(ctregistries::registries$trn_regex,
   #                               collapse = "|"))
@@ -26,8 +32,16 @@ which_trn <- function(x) {
     ) |>
     purrr::flatten_chr()
 
-  # Return NA if no trn match
-  if (rlang::is_empty(trn)) NA_character_ else trn
+  if (rlang::is_empty(trn)) {
+    # Return NA if no trn match
+    return(NA_character_)
+  } else {
+    if (!is.na(collapse)) {
+      trn <- paste(trn, collapse = collapse)
+    }
+    return(trn)
+  }
+
 }
 
 
@@ -44,12 +58,13 @@ which_trn <- function(x) {
 #' df <- dplyr::tibble(trn = c("NCT00312962", "hello", "euctr2020-001808-42", NA))
 #' dplyr::mutate(df, trn_extract = which_trns(trn))
 #'
-#' # docDoes not work for multiple TRNs in one element
+#' # docDoes not work for multiple TRNs in one element if no collapse chosen
 #' \dontrun{
 #' which_trns(c("NCT00312962 and euctr2020-001808-41", "hello", "euctr2020-001808-42", NA))
 #' }
+#' which_trns(c("NCT00312962 and euctr2020-001808-41", "hello", "euctr2020-001808-42", NA), collapse = ";")
 
-which_trns <- function(x) {
+which_trns <- function(trn_vec, collapse = NA_character_) {
 
-  purrr::map_chr(x, which_trn)
+  purrr::map_chr(trn_vec, \(x) which_trn(x, collapse = collapse))
 }
