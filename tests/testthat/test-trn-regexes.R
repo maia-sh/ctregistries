@@ -30,8 +30,14 @@ test_that("ClinicalTrials.gov TP detected", {
     "NCT 00902941", #10.1002/mds.25661
     "nCt01208194",  #10.1007/s00432-014-1682-7
     "NCT#00379470", #10.1016/j.ejca.2012.04.011
-    "Nct02529358"   #10.1016/j.jad.2017.10.047
+    "Nct02529358",   #10.1016/j.jad.2017.10.047
+    "Name: NCT Number: 03849118", # from EUCTR
+    "NCT01882777_2", # CT.gov
+    "Name: NCT Number: NT 03096834" # from EUCTR
+    # from EUCTR but seems to have been corrected there:
+    # "Name: ClinicalTrials.gov  Number: NCTO2950051"
   )
+
 
   purrr::walk(
     tests,
@@ -39,16 +45,16 @@ test_that("ClinicalTrials.gov TP detected", {
   )
 })
 
-# test_that("ClinicalTrials.gov TN rejected", {
-#   tests <- c(
-#
-#   )
-#
-#   purrr::walk(
-#     tests,
-#     expect_registry, reg = "ClinicalTrials.gov", match_expected = FALSE
-#   )
-# })
+test_that("ClinicalTrials.gov TN rejected", {
+  tests <- c(
+    "NCT12345678"
+  )
+
+  purrr::walk(
+    tests,
+    expect_registry, reg = "ClinicalTrials.gov", match_expected = FALSE
+  )
+})
 
 # DRKS --------------------------------------------------------------------
 
@@ -57,13 +63,13 @@ test_that("DRKS TP detected", {
   tests <- c(
     "DRKS00005115", #10.1002/dta.1830
     "DRKS 00003170", #10.1111/jdv.12823
-    "DRKS Number: 00003246",
-    "DRKS: 00004353",
-    "DRKS ID 00003498",
-    "DRKS-Number: DRKS00003349",
-    "DRKS No Number: 00013730",
-    "DRKS-IDDRKS00025222",
-    "Name: DRKS Number: 00011932"
+    "DRKS Number: 00003246", # from EUCTR
+    "DRKS: 00004353", # from EUCTR
+    "DRKS-Number: DRKS00003349", # from EUCTR
+    "DRKS No Number: 00013730", # from EUCTR
+    "Name: DRKS Number: 00011932", # from EUCTR
+    "DRKS-IDDRKS00025222", # from DRKS
+    "DRKS ID 00003498" # from CT.gov
   )
 
   purrr::walk(
@@ -72,16 +78,16 @@ test_that("DRKS TP detected", {
   )
 })
 
-# test_that("DRKS TN rejected", {
-#   tests <- c(
-#
-#   )
-#
-#   purrr::walk(
-#     tests,
-#     expect_registry, reg = "DRKS", match_expected = FALSE
-#   )
-# })
+test_that("DRKS TN rejected", {
+  tests <- c(
+    "DRKS 12345678"
+  )
+
+  purrr::walk(
+    tests,
+    expect_registry, reg = "DRKS", match_expected = FALSE
+  )
+})
 
 # EudraCT -----------------------------------------------------------------
 test_that("EudraCT TP detected", {

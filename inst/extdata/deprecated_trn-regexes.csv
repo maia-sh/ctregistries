@@ -5,3 +5,4 @@ date,registry,trn_regex_old,trn_regex_new,comment
 2021-02-23,EudraCT,(?i)(?<!IRCT|PACTR)20\d{2}\W*0\d{5}\W*\d{2}\b,(?i)(?<!IRCT|PACTR|\d)20\d{2}\W*0\d{5}\W*\d{2}\b,disallow preceded by numbers
 2022-09-12,UMIN-CTR,(?i)(UMIN|C)\W*0000\d{5}, (?i)\b(UMIN|C)\W*0000\d{5},require word boundary at beginning
 2025-04-08,DRKS,(?i)DRKS\W*000\d{5},(?i)DRKS\W*(Nr|Number|ID)?\W*000\d{5},allow some words between DRKS and number
+2025-04-08,ClinicalTrials.gov,(?i)NCT\W*0\d{7},(?i)NCT\W*((Number|NT)\W*)*0\d{7},allow some words between DRKS and number
