@@ -38,6 +38,16 @@ test_that("ClinicalTrials.gov TP detected", {
     # "Name: ClinicalTrials.gov  Number: NCTO2950051"
   )
 
+  expect_equal(which_trns(tests),
+               c("NCT01400022",
+                 "NCT00902941",
+                 "NCT01208194",
+                 "NCT00379470",
+                 "NCT02529358",
+                 "NCT03849118",
+                 "NCT01882777",
+                 "NCT03096834"))
+
 
   purrr::walk(
     tests,
@@ -71,6 +81,18 @@ test_that("DRKS TP detected", {
     "DRKS-IDDRKS00025222", # from DRKS
     "DRKS ID 00003498" # from CT.gov
   )
+
+  expect_equal(which_trns(tests),
+               c("DRKS00005115",
+                 "DRKS00003170",
+                 "DRKS00003246",
+                 "DRKS00004353",
+                 "DRKS00003349",
+                 "DRKS00013730",
+                 "DRKS00011932",
+                 "DRKS00025222",
+                 "DRKS00003498"
+                 ))
 
   purrr::walk(
     tests,
@@ -186,6 +208,17 @@ test_that("NTR TP detected", {
     "EffectofDelmopinolontreatmentofinflammation:NL5159", # from EUCTR
     "NederlandTrilaRegister:NTR4269"
   )
+
+  expect_equal(which_trns(tests),
+               c("NL9229",
+                 "NL8152",
+                 "NL5458",
+                 "NTR4269",
+                 "NTR3912",
+                 "NL3011",
+                 "NL4187;NTR4337",
+                 "NL5159",
+                 "NTR4269"))
 
   purrr::walk(
     tests,
