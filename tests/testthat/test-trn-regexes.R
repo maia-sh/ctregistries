@@ -176,7 +176,15 @@ test_that("ISRCTN TN rejected", {
 test_that("NTR TP detected", {
 
   tests <- c(
-    "NL9229"
+    "NL9229",
+    "DutchTrialRegister:NL8152", # from EUCTR
+    "DutchTrialRegister(LTR):NL5458", # from EUCTR
+    "NederlandTrilaRegister:NTR4269", # from EUCTR
+    "NationalTrialregistration:NTR3912", # from EUCTR
+    "NederlandsTrialregister:NL3011", # from EUCTR
+    "NederlandsTrailRegister:NL4187/NTR4337", # from EUCTR
+    "EffectofDelmopinolontreatmentofinflammation:NL5159", # from EUCTR
+    "NederlandTrilaRegister:NTR4269"
   )
 
   purrr::walk(
@@ -187,6 +195,7 @@ test_that("NTR TP detected", {
 
 test_that("NTR TN rejected", {
   tests <- c(
+    "CCMOdossiernumber:NL41789.078.13", # from EUCTR
     "nl-2012-302759", #10.1136/gutjnl-2012-302759
     # "nL6118",         #10.1097/TP.0000000000000779 [ISSUE]
     # "nl11",           #10.1186/cc13089 [ISSUE]
@@ -234,8 +243,10 @@ test_that("PACTR TP detected", {
 # })
 
 test_that("All PACTR digits extracted", {
-  expect_equal(which_trn("PACTR 2010020001429343"), "PACTR 2010020001429343")
   expect_equal(which_trn("PACTR202406532417953"), "PACTR202406532417953")
+  expect_equal(which_trn("PACTR 2010020001429343", clean = FALSE), "PACTR 2010020001429343")
+  expect_equal(which_trn("PACTR 2010020001429343", clean = TRUE), "PACTR2010020001429343")
+
 })
 
 # REPEC -------------------------------------------------------------------
