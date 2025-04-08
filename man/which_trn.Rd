@@ -4,7 +4,7 @@
 \alias{which_trn}
 \title{Extract TRN(s) from input}
 \usage{
-which_trn(x, collapse = NA_character_)
+which_trn(x, collapse = NA_character_, clean = TRUE)
 }
 \arguments{
 \item{x}{A string (character vector of length 1)}
@@ -12,6 +12,9 @@ which_trn(x, collapse = NA_character_)
 \item{collapse}{A string. By default, NA, the return is a vector with
 all extracted TRNs. If a collapse string is given, then the vector will
 be collapsed to a single string with the chosen separator string.}
+
+\item{clean}{Logical. By default (TRUE), the individual TRNs will also be
+cleaned with `trn_clean`. Skip cleaning by setting to FALSE.}
 }
 \value{
 A string (character vector of length number of registries or
@@ -25,6 +28,8 @@ Extract TRN(s) from input
 which_trn("NCT00312962")
 which_trn("NCT00312962 and euctr2020-001808-42")
 which_trn("NCT00312962 and euctr2020-001808-42", collapse = ";")
+which_trn("NCT 00312962 and euctr2020-001808-42", collapse = ";")
+which_trn("NCT 00312962 and euctr2020-001808-42", collapse = ";", clean = FALSE)
 which_trn("hello")
 which_trn(NA, NA)
 }
