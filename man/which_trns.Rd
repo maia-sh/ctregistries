@@ -9,8 +9,10 @@ which_trns(trn_vec, collapse = ";", clean = TRUE)
 \arguments{
 \item{trn_vec}{A character vector.}
 
-\item{collapse}{A string. The returned vector will be collapsed to a single
-string with the chosen separator string. Cannot be set to NA.}
+\item{collapse}{A string. If one of the vector elements has multiple TRNS
+the element of the output vector will be collapsed to a single
+string with the chosen separator string. To make the length of the return
+vector the same as the input vector, setting to "none" has been disabled.}
 
 \item{clean}{Logical. By default (TRUE), the individual TRNs will also be
 cleaned with `trn_clean`. Skip cleaning by setting to FALSE.}
@@ -27,7 +29,7 @@ which_trns(c("NCT00312962", "hello", "euctr2020-001808-42", NA))
 df <- dplyr::tibble(trn = c("NCT00312962", "hello", "euctr2020-001808-42", NA))
 dplyr::mutate(df, trn_extract = which_trns(trn))
 
-# Does not work for multiple TRNs in one element without collapse
+# Cannot set collapse to "none"
 \dontrun{
 which_trns(c("NCT00312962 and euctr2020-001808-41", "hello", "euctr2020-001808-42", NA),
  collapse = "none")
@@ -35,5 +37,10 @@ which_trns(c("NCT00312962 and euctr2020-001808-41", "hello", "euctr2020-001808-4
 which_trns(c("NCT 00312962 and euctr2020-001808-41", "hello", "euctr2020-001808-42", NA))
 which_trns(c("NCT 00312962 and euctr2020-001808-41", "hello", "euctr2020-001808-42", NA),
  clean = FALSE)
-
+# character(0) and NULL in input vector are omitted
+# convert NULL values to NAs when importing e.g. with `readr` to preserve
+messy_input <- c("", NULL, "Nct02529358", NA, "EudraCT 2004-002714-11", character(0), "NA")
+which_trns(messy_input)
+# compare to which_trn:
+which_trn(messy_input)
 }

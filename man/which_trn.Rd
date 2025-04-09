@@ -7,7 +7,7 @@
 which_trn(x, collapse = ";", clean = TRUE)
 }
 \arguments{
-\item{x}{A string (character vector of length 1)}
+\item{x}{A string (character vector)}
 
 \item{collapse}{A string. When a collapse string is given, (by default ";"),
 then the return vector will be collapsed to a single string with the chosen
@@ -32,6 +32,4 @@ which_trn("NCT00312962 and euctr2020-001808-42", collapse = "none")
 which_trn("NCT 00312962 and euctr2020-001808-42")
 which_trn("NCT 00312962 and euctr2020-001808-42", clean = FALSE)
 which_trn("hello") # return NA if nothing was detected
-which_trn(c("NCT 00312962", NA, "", "hello")) # NAs and empty strings are ignored
-
 }
