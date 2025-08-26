@@ -4,7 +4,7 @@
 # ctregistries
 
 *Moved to <https://github.com/quest-bih/ctregistries> and archived as
-[v1.0.0](https://github.com/quest-bih/ctregistries/releases/tag/v1.0.0)*
+[v1.0.1](https://github.com/quest-bih/ctregistries/releases/tag/v1.0.1)*
 
 The goal of ctregistries is to facilitate the detection and analysis of
 clinical trial registration numbers. ctregistries is primarily a data
