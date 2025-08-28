@@ -118,7 +118,8 @@ mutate_trn_registry(sample_trn_df, text)
 
 > Salholz-Hillel M (2022). ctregistries: Data package and R functions
 > for clinical trial registries and other MEDLINE databanks.
-> <doi:10.5281/zenodo.16949292>, Version 1.0.1,
+> [doi:10.5281/zenodo.16949292](http://doi.org/10.5281/zenodo.16949292),
+> Version 1.0.1,
 > [RRID:SCR_024412](https://scicrunch.org/resolver/SCR_024412),
 > <https://github.com/maia-sh/ctregistries>.
 
@@ -127,4 +128,5 @@ ctregistries was initially developed for the following research project:
 > Salholz-Hillel M, Strech D, Carlisle B (2022). Results publications
 > are inadequately linked to trial registrations: An automated pipeline
 > and evaluation of German university medical centers. *Clinical
-> Trials*, *19*(3), 337-346. <doi:10.1177/17407745221087456>.
+> Trials*, *19*(3), 337-346.
+> [doi:10.1177/17407745221087456](http://doi.org/10.1177/17407745221087456).
