@@ -10,6 +10,9 @@ title: 'ctregistries: Data Package and R Functions for Clinical Trial Registries
   other MEDLINE Databanks'
 version: 1.0.1
 doi: 10.5281/zenodo.16949292
+identifiers:
+  - type: url
+    value: https://scicrunch.org/resolver/SCR_024412
 abstract: Regular expressions (regex) and R functions for trial registration numbers
   (TRN) from World Health Organization (WHO) International Clinical Trials Registry
   Platform (ICTRP) Primary Registries (https://www.who.int/ictrp/network/primary/en/)
@@ -34,7 +37,8 @@ preferred-citation:
   date-accessed: '2025-08-27'
   doi: 10.5281/zenodo.16949292
   url: https://github.com/maia-sh/ctregistries
-  notes: Version:1.0.1 RRID:SCR_024412
+  version: 1.0.1
+  notes: RRID:SCR_024412
   abstract: Regular expressions (regex) and R functions for trial registration numbers
     (TRN) from World Health Organization (WHO) International Clinical Trials Registry
     Platform (ICTRP) Primary Registries (https://www.who.int/ictrp/network/primary/en/)
@@ -295,3 +299,4 @@ references:
     orcid: https://orcid.org/0000-0002-6983-2759
   year: '2025'
   doi: 10.32614/CRAN.package.readr
+
