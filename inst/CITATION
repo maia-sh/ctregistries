@@ -9,13 +9,9 @@ bibentry(
   doi = "10.5281/zenodo.16949292",
   url = "https://github.com/maia-sh/ctregistries",
   version = "1.0.1",
-  note = "{RRID:SCR_024412}",
+  note = c("Version:1.0.1", "{RRID:SCR_024412}"),
   abstract = "{
-	  Regular expressions (regex) and R functions for trial registration numbers
-    (TRN) from World Health Organization (WHO) International Clinical Trials Registry
-    Platform (ICTRP) Primary Registries (https://www.who.int/ictrp/network/primary/en/)
-    and MEDLINE Databank Sources (https://www.nlm.nih.gov/bsd/medline_databank_source.html).
-    Additional, non-trial databanks indexed by MEDLINE included without regexes.
+	  Regular expressions (regex) and R functions for trial registration numbers (TRN) from World Health Organization (WHO) International Clinical Trials Registry Platform (ICTRP) Primary Registries (https://www.who.int/ictrp/network/primary/en/) and MEDLINE Databank Sources (https://www.nlm.nih.gov/bsd/medline_databank_source.html). Additional, non-trial databanks indexed by MEDLINE included without regexes.
   }"
 )
 
