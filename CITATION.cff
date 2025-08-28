@@ -1,0 +1,297 @@
+# --------------------------------------------
+# CITATION file created with {cffr} R package
+# See also: https://docs.ropensci.org/cffr/
+# --------------------------------------------
+
+cff-version: 1.2.0
+message: 'To cite package "ctregistries" in publications use:'
+type: software
+title: 'ctregistries: Data Package and R Functions for Clinical Trial Registries and
+  other MEDLINE Databanks'
+version: 1.0.1
+doi: 10.5281/zenodo.16949292
+abstract: Regular expressions (regex) and R functions for trial registration numbers
+  (TRN) from World Health Organization (WHO) International Clinical Trials Registry
+  Platform (ICTRP) Primary Registries (https://www.who.int/ictrp/network/primary/en/)
+  and MEDLINE Databank Sources (https://www.nlm.nih.gov/bsd/medline_databank_source.html).
+  Additional, non-trial databanks indexed by MEDLINE included without regexes.
+authors:
+- family-names: Salholz-Hillel
+  given-names: Maia
+  email: maia.salholz-hillel@bih-charite.de
+  orcid: https://orcid.org/0000-0003-1934-9504
+preferred-citation:
+  type: generic
+  title: 'ctregistries: Data package and R functions for clinical trial registries
+    and other MEDLINE databanks'
+  authors:
+  - family-names: Salholz-Hillel
+    given-names: Maia
+    orcid: https://orcid.org/0000-0003-1934-9504
+    email: maia.salholz-hillel@bih-charite.de
+  year: '2022'
+  month: '9'
+  date-accessed: '2025-08-27'
+  doi: 10.5281/zenodo.16949292
+  url: https://github.com/maia-sh/ctregistries
+  notes: Version:1.0.1 RRID:SCR_024412
+  abstract: Regular expressions (regex) and R functions for trial registration numbers
+    (TRN) from World Health Organization (WHO) International Clinical Trials Registry
+    Platform (ICTRP) Primary Registries (https://www.who.int/ictrp/network/primary/en/)
+    and MEDLINE Databank Sources (https://www.nlm.nih.gov/bsd/medline_databank_source.html).
+    Additional, non-trial databanks indexed by MEDLINE included without regexes.
+repository-code: https://github.com/maia-sh/ctregistries
+url: https://github.com/maia-sh/ctregistries
+contact:
+- family-names: Salholz-Hillel
+  given-names: Maia
+  email: maia.salholz-hillel@bih-charite.de
+  orcid: https://orcid.org/0000-0003-1934-9504
+references:
+- type: article
+  title: 'Results publications are inadequately linked to trial registrations: An
+    automated pipeline and evaluation of German university medical centers'
+  authors:
+  - family-names: Salholz-Hillel
+    given-names: Maia
+    orcid: https://orcid.org/0000-0003-1934-9504
+  - family-names: Strech
+    given-names: Daniel
+    orcid: https://orcid.org/0000-0002-9153-079X
+  - family-names: Carlisle
+    given-names: Benjamin Gregory
+    orcid: https://orcid.org/0000-0001-8975-0649
+  year: '2022'
+  month: '4'
+  date-accessed: '2022-04-04'
+  journal: Clinical Trials
+  volume: '19'
+  issue: '3'
+  doi: 10.1177/17407745221087456
+  url: https://doi.org/10.1177/17407745221087456
+  pmcid: PMC9203676
+  abstract: 'Background/Aims: Informed clinical guidance and health policy relies
+    on clinicians, policymakers, and guideline developers finding comprehensive clinical
+    evidence and linking registrations and publications of the same clinical trial.
+    To support the finding and linking of trial evidence, the World Health Organization,
+    the International Committee of Medical Journal Editors, and the Consolidated Standards
+    of Reporting Trials ask researchers to provide the trial registration number in
+    their publication and a reference to the publication in the registration. This
+    practice costs researchers minimal effort and makes evidence synthesis more thorough
+    and efficient. Nevertheless, trial evidence appears inadequately linked, and the
+    extent of trial links in Germany remains unquantified. This cross-sectional study
+    aims to evaluate links between registrations and publications across clinical
+    trials conducted by German university medical centers and registered in ClinicalTrials.gov
+    or the German Clinical Trials Registry. Secondary aims are to develop an automated
+    pipeline that can be applied to other cohorts of trial registrations and publications,
+    and to provide stakeholders, from trialists to registries, with guidance to improve
+    trial links. Methods: We used automated strategies to download and extract data
+    from trial registries, PubMed, and results publications for a cohort of registered,
+    published trials conducted across German university medical centers and completed
+    between 2009 and 2017. We implemented regular expressions to detect and classify
+    publication identifiers in registrations, and trial registration numbers in publication
+    metadata, abstracts, and full-texts. Results: In breach of long-standing guidelines,
+    75% (1,418) of trials failed to reference trial registration numbers in both the
+    abstract and full-text of the journal article in which the results were published.
+    Furthermore, 50% (946) of trial registrations did not contain links to their results
+    publications. Seventeen percent (327) of trials had no links, so that associating
+    registration and publication required manual searching and screening. Overall,
+    trials in ClinicalTrials.gov were better linked than those in the German Clinical
+    Trials Registry; PubMed and registry infrastructures appear to drive this difference.
+    Trial registration numbers were more likely to be transferred to PubMed metadata
+    from abstracts for ClinicalTrials.gov trials than for German Clinical Trials Registry
+    trials. Most (78%, 662/849) ClinicalTrials.gov registrations with a publication
+    link were automatically indexed from PubMed metadata, which is not possible in
+    the German Clinical Trials Registry. Conclusions: German university medical centers
+    have not comprehensively linked trial registrations and publications, despite
+    established recommendations. This shortcoming threatens the quality of evidence
+    synthesis and medical practice, and burdens researchers with manually searching
+    and linking trial data. Researchers could easily improve this by copy-and-pasting
+    references between their trial registrations and publications. Other stakeholders
+    could build on this practice, for example, PubMed could capture additional trial
+    registration numbers using automated strategies (like those developed in this
+    study), and the German Clinical Trials Registry could automatically index publications
+    from PubMed'
+  start: 337-346
+- type: software
+  title: dplyr
+  abstract: 'dplyr: A Grammar of Data Manipulation'
+  notes: Imports
+  url: https://dplyr.tidyverse.org
+  repository: https://CRAN.R-project.org/package=dplyr
+  authors:
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+    orcid: https://orcid.org/0000-0003-4757-117X
+  - family-names: François
+    given-names: Romain
+    orcid: https://orcid.org/0000-0002-2444-4226
+  - family-names: Henry
+    given-names: Lionel
+  - family-names: Müller
+    given-names: Kirill
+    orcid: https://orcid.org/0000-0002-1416-3412
+  - family-names: Vaughan
+    given-names: Davis
+    email: davis@posit.co
+    orcid: https://orcid.org/0000-0003-4777-038X
+  year: '2025'
+  doi: 10.32614/CRAN.package.dplyr
+- type: software
+  title: magrittr
+  abstract: 'magrittr: A Forward-Pipe Operator for R'
+  notes: Imports
+  url: https://magrittr.tidyverse.org
+  repository: https://CRAN.R-project.org/package=magrittr
+  authors:
+  - family-names: Bache
+    given-names: Stefan Milton
+    email: stefan@stefanbache.dk
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@rstudio.com
+  year: '2025'
+  doi: 10.32614/CRAN.package.magrittr
+- type: software
+  title: fuzzyjoin
+  abstract: 'fuzzyjoin: Join Tables Together on Inexact Matching'
+  notes: Imports
+  url: https://github.com/dgrtwo/fuzzyjoin
+  repository: https://CRAN.R-project.org/package=fuzzyjoin
+  authors:
+  - family-names: Robinson
+    given-names: David
+    email: admiral.david@gmail.com
+  year: '2025'
+  doi: 10.32614/CRAN.package.fuzzyjoin
+- type: software
+  title: tidyr
+  abstract: 'tidyr: Tidy Messy Data'
+  notes: Imports
+  url: https://tidyr.tidyverse.org
+  repository: https://CRAN.R-project.org/package=tidyr
+  authors:
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+  - family-names: Vaughan
+    given-names: Davis
+    email: davis@posit.co
+  - family-names: Girlich
+    given-names: Maximilian
+  year: '2025'
+  doi: 10.32614/CRAN.package.tidyr
+- type: software
+  title: rlang
+  abstract: 'rlang: Functions for Base Types and Core R and ''Tidyverse'' Features'
+  notes: Imports
+  url: https://rlang.r-lib.org
+  repository: https://CRAN.R-project.org/package=rlang
+  authors:
+  - family-names: Henry
+    given-names: Lionel
+    email: lionel@posit.co
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+  year: '2025'
+  doi: 10.32614/CRAN.package.rlang
+- type: software
+  title: purrr
+  abstract: 'purrr: Functional Programming Tools'
+  notes: Imports
+  url: https://purrr.tidyverse.org/
+  repository: https://CRAN.R-project.org/package=purrr
+  authors:
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+    orcid: https://orcid.org/0000-0003-4757-117X
+  - family-names: Henry
+    given-names: Lionel
+    email: lionel@posit.co
+  year: '2025'
+  doi: 10.32614/CRAN.package.purrr
+- type: software
+  title: stringr
+  abstract: 'stringr: Simple, Consistent Wrappers for Common String Operations'
+  notes: Imports
+  url: https://stringr.tidyverse.org
+  repository: https://CRAN.R-project.org/package=stringr
+  authors:
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+  year: '2025'
+  doi: 10.32614/CRAN.package.stringr
+- type: software
+  title: glue
+  abstract: 'glue: Interpreted String Literals'
+  notes: Imports
+  url: https://glue.tidyverse.org/
+  repository: https://CRAN.R-project.org/package=glue
+  authors:
+  - family-names: Hester
+    given-names: Jim
+    orcid: https://orcid.org/0000-0002-2739-7082
+  - family-names: Bryan
+    given-names: Jennifer
+    email: jenny@posit.co
+    orcid: https://orcid.org/0000-0002-6983-2759
+  year: '2025'
+  doi: 10.32614/CRAN.package.glue
+- type: software
+  title: 'R: A Language and Environment for Statistical Computing'
+  notes: Depends
+  url: https://www.R-project.org/
+  authors:
+  - name: R Core Team
+  institution:
+    name: R Foundation for Statistical Computing
+    address: Vienna, Austria
+  year: '2025'
+  version: '>= 2.10'
+- type: software
+  title: testthat
+  abstract: 'testthat: Unit Testing for R'
+  notes: Suggests
+  url: https://testthat.r-lib.org
+  repository: https://CRAN.R-project.org/package=testthat
+  authors:
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+  year: '2025'
+  doi: 10.32614/CRAN.package.testthat
+- type: software
+  title: here
+  abstract: 'here: A Simpler Way to Find Your Files'
+  notes: Suggests
+  url: https://here.r-lib.org/
+  repository: https://CRAN.R-project.org/package=here
+  authors:
+  - family-names: Müller
+    given-names: Kirill
+    email: krlmlr+r@mailbox.org
+    orcid: https://orcid.org/0000-0002-1416-3412
+  year: '2025'
+  doi: 10.32614/CRAN.package.here
+- type: software
+  title: readr
+  abstract: 'readr: Read Rectangular Text Data'
+  notes: Suggests
+  url: https://readr.tidyverse.org
+  repository: https://CRAN.R-project.org/package=readr
+  authors:
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+  - family-names: Hester
+    given-names: Jim
+  - family-names: Bryan
+    given-names: Jennifer
+    email: jenny@posit.co
+    orcid: https://orcid.org/0000-0002-6983-2759
+  year: '2025'
+  doi: 10.32614/CRAN.package.readr

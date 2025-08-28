@@ -1,0 +1,49 @@
+bibentry(
+  bibtype = "Misc",
+  title = "{ctregistries}: Data package and {R} functions for clinical trial registries and other {MEDLINE} databanks",
+	shorttitle = "{ctregistries}",
+  author = person("Maia", "Salholz-Hillel", comment = c(ORCID = "0000-0003-1934-9504")),
+  year = "2022",
+  month = "sep",
+  urldate = "2025-08-27",
+  doi = "10.5281/zenodo.16949292",
+  url = "https://github.com/maia-sh/ctregistries",
+  note = c("{Version:1.0.1}", "{RRID:SCR_024412}"),
+  abstract = "{
+	  Regular expressions (regex) and R functions for trial registration numbers
+    (TRN) from World Health Organization (WHO) International Clinical Trials Registry
+    Platform (ICTRP) Primary Registries (https://www.who.int/ictrp/network/primary/en/)
+    and MEDLINE Databank Sources (https://www.nlm.nih.gov/bsd/medline_databank_source.html).
+    Additional, non-trial databanks indexed by MEDLINE included without regexes.
+  }"
+)
+
+bibentry(
+  header = "ctregistries was initially developed for the following research project:",
+  bibtype = "Article",
+  title = "{Results publications are inadequately linked to trial registrations: An automated pipeline and evaluation of {German} university medical centers}",
+	shorttitle = "{Results publications are inadequately linked to trial registrations}",
+		author = c(
+    person("Maia", "Salholz-Hillel", comment = c(ORCID = "0000-0003-1934-9504")),
+    person("Daniel", "Strech", comment = c(ORCID = "https://orcid.org/0000-0002-9153-079X")),
+    person("Benjamin Gregory", "Carlisle", comment = c(ORCID = "0000-0001-8975-0649"))
+  ),
+  year = "2022",
+	month = "apr",
+  urldate = "2022-04-04",
+	journal = "Clinical Trials",
+	volume = "19",
+	number = "3",
+	pages = "337-346",
+	language = "en",
+	doi = "10.1177/17407745221087456",
+	url = "https://doi.org/10.1177/17407745221087456",
+	pmid = "35362331",
+	pmcid = "PMC9203676",
+	abstract = "{
+	  Background/Aims: Informed clinical guidance and health policy relies on clinicians, policymakers, and guideline developers finding comprehensive clinical evidence and linking registrations and publications of the same clinical trial. To support the finding and linking of trial evidence, the World Health Organization, the International Committee of Medical Journal Editors, and the Consolidated Standards of Reporting Trials ask researchers to provide the trial registration number in their publication and a reference to the publication in the registration. This practice costs researchers minimal effort and makes evidence synthesis more thorough and efficient. Nevertheless, trial evidence appears inadequately linked, and the extent of trial links in Germany remains unquantified. This cross-sectional study aims to evaluate links between registrations and publications across clinical trials conducted by German university medical centers and registered in ClinicalTrials.gov or the German Clinical Trials Registry. Secondary aims are to develop an automated pipeline that can be applied to other cohorts of trial registrations and publications, and to provide stakeholders, from trialists to registries, with guidance to improve trial links.
+    Methods: We used automated strategies to download and extract data from trial registries, PubMed, and results publications for a cohort of registered, published trials conducted across German university medical centers and completed between 2009 and 2017. We implemented regular expressions to detect and classify publication identifiers in registrations, and trial registration numbers in publication metadata, abstracts, and full-texts.
+    Results: In breach of long-standing guidelines, 75% (1,418) of trials failed to reference trial registration numbers in both the abstract and full-text of the journal article in which the results were published. Furthermore, 50% (946) of trial registrations did not contain links to their results publications. Seventeen percent (327) of trials had no links, so that associating registration and publication required manual searching and screening. Overall, trials in ClinicalTrials.gov were better linked than those in the German Clinical Trials Registry; PubMed and registry infrastructures appear to drive this difference. Trial registration numbers were more likely to be transferred to PubMed metadata from abstracts for ClinicalTrials.gov trials than for German Clinical Trials Registry trials. Most (78%, 662/849) ClinicalTrials.gov registrations with a publication link were automatically indexed from PubMed metadata, which is not possible in the German Clinical Trials Registry.
+    Conclusions: German university medical centers have not comprehensively linked trial registrations and publications, despite established recommendations. This shortcoming threatens the quality of evidence synthesis and medical practice, and burdens researchers with manually searching and linking trial data. Researchers could easily improve this by copy-and-pasting references between their trial registrations and publications. Other stakeholders could build on this practice, for example, PubMed could capture additional trial registration numbers using automated strategies (like those developed in this study), and the German Clinical Trials Registry could automatically index publications from PubMed
+  }"
+)
