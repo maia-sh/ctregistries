@@ -1,9 +1,9 @@
 Package: ctregistries
 Type: Package
 Title: Data Package and R Functions for Clinical Trial Registries and other MEDLINE Databanks
-Version: 0.1.0
+Version: 1.0.1
 Authors@R: c(
-    person("Maia", "Salholz-Hillel", email = "jane@example.com", 
+    person("Maia", "Salholz-Hillel", email = "maia.salholz-hillel@bih-charite.de", 
             role = c("aut", "cre", "cph"), comment = c(ORCID = "0000-0003-1934-9504")),
     person("Nicholas", "DeVito", 
             role = "dtc", comment = c(ORCID = "0000-0001-8286-1995")),
@@ -28,7 +28,7 @@ Imports:
     glue
 Depends: 
     R (>= 2.10)
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.2
 Suggests: 
     testthat,
     here,
