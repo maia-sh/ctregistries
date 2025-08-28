@@ -79,7 +79,7 @@ clean_trn <- function(trn, registry = NULL, quiet = FALSE){
     "CRiS" = glue::glue("KCT", stringr::str_extract(trn, "00\\d{5}")),
     "CTRI" = glue::glue(
       "CTRI",
-      stringr::str_replace_all(trn, "\\s", "") |>
+      stringr::str_replace_all(trn, "\\s", "") %>%
         stringr::str_extract("/20\\d{2}/\\d{2,3}/0\\d{5}")
     ),
     "DRKS" = glue::glue("DRKS", stringr::str_extract(trn, "000\\d{5}")),
