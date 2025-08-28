@@ -1,10 +1,11 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# ctregistries
+[![DOI](https://zenodo.org/badge/960506984.svg)](https://doi.org/10.5281/zenodo.16949291)
 
-*Moved to <https://github.com/quest-bih/ctregistries> and archived as
-[v1.0.1](https://github.com/quest-bih/ctregistries/releases/tag/v1.0.1)*
+### *Moved to <https://github.com/quest-bih/ctregistries> and archived as [v1.0.1](https://github.com/quest-bih/ctregistries/releases/tag/v1.0.1)*
+
+# ctregistries
 
 The goal of ctregistries is to facilitate the detection and analysis of
 clinical trial registration numbers. ctregistries is primarily a data
@@ -113,21 +114,17 @@ mutate_trn_registry(sample_trn_df, text)
 #> 7     6 ClinicalTrials.gov number, NCT00268476 , … ISRCTN         ISRCTN   ISRC…
 ```
 
-## To Do
+## Citation
 
-- [ ] Add checks within functions
-  - [ ] Check input variable type
-  - [ ] Check input (column) name conflicts (e.g., databank, trn_regex)
-- [ ] Add tests: use_testthat()
-- [ ] Consider removing `check_registry` since just comparing strings…
-- [ ] Change license (CCBY or AGPL, unclear since partially data
-  package)
-  - <https://r-pkgs.org/lsicense.html>
-  - <https://thinkr-open.github.io/licensing-r/rlicense.html>
-  - <https://kbroman.org/pkg_primer/pages/licenses.html>
-- [ ] Get functions to work with multiple and no trns (character(0) and
-  NA) in one element
-  - rapply(~ifelse(. == 1,NA,.), how = “replace”)
-  - purrr::modify_if()
-  - any(lengths(y) \> 1) \# flatten if max 1 trn per element…but issue
-    with character(0)
+> Salholz-Hillel M (2022). ctregistries: Data package and R functions
+> for clinical trial registries and other MEDLINE databanks.
+> <doi:10.5281/zenodo.16949292>, Version 1.0.1,
+> [RRID:SCR_024412](https://scicrunch.org/resolver/SCR_024412),
+> <https://github.com/maia-sh/ctregistries>.
+
+ctregistries was initially developed for the following research project:
+
+> Salholz-Hillel M, Strech D, Carlisle B (2022). Results publications
+> are inadequately linked to trial registrations: An automated pipeline
+> and evaluation of German university medical centers. *Clinical
+> Trials*, *19*(3), 337-346. <doi:10.1177/17407745221087456>.
